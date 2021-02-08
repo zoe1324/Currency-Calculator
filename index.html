@@ -5,14 +5,66 @@
     <title>Currency Calculator</title>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="currency.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
 </head>
 <body>
-<header>
 
+<header>
+    <h1>Currency Calculator</h1>
 </header>
+
 <main>
+<table id="io">
+    <tr>
+        <td>
+            <label>Visiting:</label>
+        </td>
+        <td>
+            <input type="number" id="inputBox">
+        </td>
+        <td>
+            <select name="curr">
+                <option value="EUR" selected>EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="PLN">PLN</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Card Est:</label>
+        </td>
+        <td>
+            <input type="number">
+        </td>
+        <td>
+            <select name="curr">
+                <option value="GBP" selected>GBP</option>
+                <option value="EUR">EUR</option>
+                <option value="PLN">PLN</option>
+            </select>
+        </td>
+    </tr>
+</table>
+<table id="keypad">
+    <tr>
+        <td><button>7</button><button>8</button><button>9</button></td>
+    </tr>
+    <tr>
+        <td><button>4</button><button>5</button><button>6</button></td>
+    </tr>
+    <tr>
+        <td><button>1</button><button>2</button><button>3</button></td>
+    </tr>
+    <tr>
+        <td><button>c</button><button>0</button><button>=</button></td>
+    </tr>
+</table>
 
 </main>
+
 <footer>
 
 </footer>
@@ -21,3 +73,30 @@
 <script src="controller.js"></script>
 </body>
 </html>
+<!--
+Conversions should be from "visiting" to "home" to give
+them an idea how much it will end up costing in their
+normal currency once it comes off their card account.
+
+SAMPLE SCENARIO:
+Sam, who lives in Scotland, is visiting friends in
+Lithuania. She wants to give them a celebratory bottle
+of nice champagne. In a local wine shop there is a bottle
+for €80. Sam has preset the app to have GBP as her home
+currency and EUR as the visiting currency and knows her
+card charges 2%. She taps 80= on the calculator like pad
+and sees £72 (calculated as approx £71 for wine plus about
+£1 in fees).
+
+STAGE 1:
+A basic fixed exchange rate calculator (max 18/40)
+This calculator should use standard HTML controls
+(minimal layout styling only) and hard coded exchange
+rates. Allows selection of home and destination currency
+but defaults to home=GBP and visiting=EUR on each run.
+Supports calculator style pad (of normal web-like buttons)
+and a two line "display". Uses large text for all
+displays but can use basic HTML5 controls for everything.
+Should support Euro, Polish zloty and UK Pound but rates
+can be fixed (stored in code). No need for bank charge.
+-->

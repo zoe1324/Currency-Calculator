@@ -1,0 +1,15 @@
+*{
+    font-family: sans-serif;
+}
+html, body{
+    font-size: 4vh;
+}
+header > h1{
+    font-size: 5vh;
+}
+button{
+    font-size: 0.7rem;
+    margin: 0.3rem 0.15rem;
+    height: 5vh;
+    width: auto;
+}
