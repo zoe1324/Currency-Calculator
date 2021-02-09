@@ -22,10 +22,10 @@
             <label>Visiting:</label>
         </td>
         <td>
-            <input type="number" id="inputBox">
+            <input type="number" id="inputBox" readonly>
         </td>
         <td>
-            <select name="curr">
+            <select name="visit" id="visit">
                 <option value="EUR" selected>EUR</option>
                 <option value="GBP">GBP</option>
                 <option value="PLN">PLN</option>
@@ -37,10 +37,10 @@
             <label>Card Est:</label>
         </td>
         <td>
-            <input type="number">
+            <input type="number" id="answer" readonly>
         </td>
         <td>
-            <select name="curr">
+            <select name="home" id="home">
                 <option value="GBP" selected>GBP</option>
                 <option value="EUR">EUR</option>
                 <option value="PLN">PLN</option>
@@ -50,16 +50,16 @@
 </table>
 <table id="keypad">
     <tr>
-        <td><button>7</button><button>8</button><button>9</button></td>
+        <td><button id="7" value="7">7</button><button id="8" value="8">8</button><button id="9" value="9">9</button></td>
     </tr>
     <tr>
-        <td><button>4</button><button>5</button><button>6</button></td>
+        <td><button id="4" value="4">4</button><button id="5" value="5">5</button><button id="6" value="6">6</button></td>
     </tr>
     <tr>
-        <td><button>1</button><button>2</button><button>3</button></td>
+        <td><button id="1" value="1">1</button><button id="2" value="2">2</button><button id="3" value="3">3</button></td>
     </tr>
     <tr>
-        <td><button>c</button><button>0</button><button>=</button></td>
+        <td><button id="c" value="c">c</button><button id="0" value="0">0</button><button id="=" value="=">=</button></td>
     </tr>
 </table>
 
