@@ -6,47 +6,14 @@ let model, view;
 const initialise = () => {
     model = new Model();
     view = new View();
-
-    view.registerClickListener1(() =>{
-        view.showInput("1")
-        }
-    )
-    view.registerClickListener2(() =>{
-        view.showInput("2")
-        }
-    )
-    view.registerClickListener3(() =>{
-        view.showInput("3")
-        }
-    )
-    view.registerClickListener4(() =>{
-        view.showInput("4")
-        }
-    )
-    view.registerClickListener5(() =>{
-        view.showInput("5")
-        }
-    )
-    view.registerClickListener6(() =>{
-        view.showInput("6")
-        }
-    )
-    view.registerClickListener7(() =>{
-        view.showInput("7")
-        }
-    )
-    view.registerClickListener8(() =>{
-        view.showInput("8")
-        }
-    )
-    view.registerClickListener9(() =>{
-        view.showInput("9")
-        }
-    )
-    view.registerClickListener0(() =>{
-        view.showInput("0")
-        }
-    )
+    //check local storage for settings
+    //on change,update local storage
+    //use model to check local storage if null then default
+    for(let i=0; i < 10; i++){
+        document.getElementById(i.toString()).addEventListener("click", ()=>{
+            view.showInput(i);
+        });
+    }
     view.registerClickListenerC(() =>{
         view.showInput("")
         }

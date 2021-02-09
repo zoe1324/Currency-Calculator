@@ -1,12 +1,42 @@
 *{
     font-family: sans-serif;
+    /*text-align: center;*/
 }
 html, body{
     font-size: 4vh;
+    text-align: center;
 }
 header > h1{
     font-size: 5vh;
+    text-align: center;
 }
 button{
-    font-size: 0.7rem;
+    font-size: 1rem;
+    color: white;
+    background-color: blue;
+    border:none;
+    padding: 0.5rem;
+    margin: 3vh;
+
+}
+select{
+    width: 8vh;
+    height: 3vh;
+    font-size: 2vh;
+}
+
+input{
+    border: none;
+    background-color: cornflowerblue;
+    width: 10vh;
+    height: 3vh;
+}
+#keypad{
+    margin-left:auto;
+    margin-right:auto;
+}
+#io{
+    font-size: 3vh;
+    margin-left:auto;
+    margin-right:auto;
 }

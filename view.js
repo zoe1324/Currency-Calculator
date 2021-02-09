@@ -6,37 +6,6 @@ class View{
         this.home = "GBP";
         this.visit = "EUR";
     }
-
-    registerClickListener1(handler){
-        document.getElementById("1").addEventListener("click", handler)
-    }
-    registerClickListener2(handler){
-        document.getElementById("2").addEventListener("click", handler)
-    }
-    registerClickListener3(handler){
-        document.getElementById("3").addEventListener("click", handler)
-    }
-    registerClickListener4(handler){
-        document.getElementById("4").addEventListener("click", handler)
-    }
-    registerClickListener5(handler){
-        document.getElementById("5").addEventListener("click", handler)
-    }
-    registerClickListener6(handler){
-        document.getElementById("6").addEventListener("click", handler)
-    }
-    registerClickListener7(handler){
-        document.getElementById("7").addEventListener("click", handler)
-    }
-    registerClickListener8(handler){
-        document.getElementById("8").addEventListener("click", handler)
-    }
-    registerClickListener9(handler){
-        document.getElementById("9").addEventListener("click", handler)
-    }
-    registerClickListener0(handler){
-        document.getElementById("0").addEventListener("click", handler)
-    }
     registerClickListenerC(handler){
         document.getElementById("c").addEventListener("click", handler)
     }
