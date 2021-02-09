@@ -54,7 +54,7 @@ class Model{
     }
     convert(rate, input){
         let i = parseInt(input);
-        return Math.round(((rate * i) + Number.EPSILON) * 100) / 100;
+        return Math.round((((rate * i) + Number.EPSILON) * 100) / 100).toFixed(2);
     }
 
 

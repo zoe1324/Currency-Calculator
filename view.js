@@ -55,12 +55,6 @@ class View{
     setVisit(){
         this.visit = document.getElementById("visit").value;
     }
-    getHome(){
-        return document.getElementById("home").value;
-    }
-    getVisit(){
-        return document.getElementById("visit").value;
-    }
     showInput(input){
         let inp = document.getElementById("inputBox")
         if(input === ""){
