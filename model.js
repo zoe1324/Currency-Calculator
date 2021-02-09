@@ -2,6 +2,7 @@
 
 class Model{
     constructor() { //setting hardcoded exchange rates
+        this.gbp_to = {"USD": 1.38, "JPY" , "BGN", "CZK","DKK", "HUF", "RON", "SEK", "CHF", "ISK", "NOK", "HRK", "RUB", "TRY", "AUD", "BRL", "CAD"}
         this.gbp_to_eur = 1.14;
         this.gbp_to_pln = 5.10;
         this.eur_to_gbp = 0.88;
@@ -58,7 +59,7 @@ class Model{
         f = f / 100;
         let conversion = Math.round((((rate * i) + Number.EPSILON) * 100) / 100);
         console.log(conversion);
-        return (conversion + (conversion * f)).toFixed(2);
+        return (conversion + (conversion * f));
     }
     getFeeLocal(){
         let fee = localStorage.getItem("fee");
