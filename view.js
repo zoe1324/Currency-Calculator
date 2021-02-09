@@ -1,10 +1,10 @@
 'use strict';
 
 class View{
-    constructor() {
+    constructor(home, visit) {
         this.input = "";
-        this.home = "GBP";
-        this.visit = "EUR";
+        this.home = home;
+        this.visit = visit;
     }
     registerClickListenerC(handler){
         document.getElementById("c").addEventListener("click", handler)
@@ -18,12 +18,23 @@ class View{
     registerChangeListenerV(handler){
         document.getElementById("visit").addEventListener("change", handler)
     }
-    setHome(){
-        this.home = document.getElementById("home").value;
+    getHome(){
+        return document.getElementById("home").value;
     }
-    setVisit(){
-        this.visit = document.getElementById("visit").value;
+    getVisit(){
+        return document.getElementById("visit").value;
     }
+    setHome(home){
+        document.getElementById("home").setAttribute("value", home);
+        document.getElementById("home").value = home;
+        this.home = home;
+    }
+    setVisit(visit){
+        document.getElementById("visit").setAttribute("value", visit);
+        document.getElementById("visit").value = visit
+        this.visit = visit;
+    }
+
     showInput(input){
         let inp = document.getElementById("inputBox")
         if(input === ""){

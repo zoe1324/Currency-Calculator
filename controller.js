@@ -4,11 +4,20 @@
 let model, view;
 
 const initialise = () => {
+
     model = new Model();
-    view = new View();
+    let home = model.getHomeLocal();
+    let visit = model.getVisitLocal();
+    console.log(visit, home);
+    view = new View(home, visit);
     //check local storage for settings
     //on change,update local storage
     //use model to check local storage if null then default
+
+
+    view.setHome(home);
+    view.setVisit(visit);
+
     for(let i=0; i < 10; i++){
         document.getElementById(i.toString()).addEventListener("click", ()=>{
             view.showInput(i);
@@ -25,10 +34,14 @@ const initialise = () => {
         view.showResult(result);
     })
     view.registerChangeListenerH(()=>{
-        view.setHome();
+        let home = view.getHome();
+        model.setHomeLocal(home);
+        view.setHome(home);
     })
     view.registerChangeListenerV(()=>{
-        view.setVisit();
+        let visit = view.getVisit();
+        model.setVisitLocal(visit);
+        view.setVisit(visit);
     })
     //do any initialisation and "plumbing" here
 };

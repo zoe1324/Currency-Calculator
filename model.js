@@ -56,7 +56,28 @@ class Model{
         let i = parseInt(input);
         return Math.round((((rate * i) + Number.EPSILON) * 100) / 100).toFixed(2);
     }
+    getHomeLocal(){
+        let home = localStorage.getItem("home");
+        console.log(home);
+        if(!home){
+            home = "GBP"
+        }
 
+        return home;
+    }
+    setHomeLocal(home){
+        localStorage.setItem("home", home);
+    }
+    getVisitLocal(){
+        let visit = localStorage.getItem("visit");
 
+        if(!visit){
+            visit = "EUR";
+        }
 
+        return visit;
+    }
+    setVisitLocal(visit){
+        localStorage.setItem("visit", visit);
+    }
 }
