@@ -3,7 +3,7 @@
 
 let model, view;
 
-const initialise = evt => {
+const initialise = () => {
     model = new Model();
     view = new View();
 
