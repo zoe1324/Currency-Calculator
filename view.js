@@ -35,7 +35,7 @@ class View{
     setFee(fee){
         document.getElementById("fee").setAttribute("fee", fee);
         document.getElementById("fee").value = fee;
-        this.home = fee;
+        this.fee = fee;
     }
     setHome(home){
         document.getElementById("home").setAttribute("value", home);

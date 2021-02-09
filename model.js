@@ -55,13 +55,13 @@ class Model{
     convert(rate, input, fee){
         let f = parseInt(fee);
         let i = parseInt(input);
-        i = i / 100;
+        f = f / 100;
         let conversion = Math.round((((rate * i) + Number.EPSILON) * 100) / 100);
-        return conversion + (conversion * fee).toFixed(2);
+        console.log(conversion);
+        return (conversion + (conversion * f)).toFixed(2);
     }
     getFeeLocal(){
         let fee = localStorage.getItem("fee");
-        console.log(fee);
         if(!fee){
             fee = "0"
         }
@@ -73,7 +73,6 @@ class Model{
     }
     getHomeLocal(){
         let home = localStorage.getItem("home");
-        console.log(home);
         if(!home){
             home = "GBP"
         }
