@@ -1,6 +1,5 @@
 *{
     font-family: sans-serif;
-    /*text-align: center;*/
 }
 html, body{
     font-size: 4vh;
@@ -15,14 +14,15 @@ button{
     color: white;
     background-color: blue;
     border:none;
-    padding: 0.5rem;
-    margin: 3vh;
+    padding: 0.7rem;
+    margin: 2.5vh;
 
 }
 select{
     width: 8vh;
-    height: 3vh;
+    height: 3.5vh;
     font-size: 2vh;
+    border:none;
 }
 
 input{
@@ -30,13 +30,19 @@ input{
     background-color: cornflowerblue;
     width: 10vh;
     height: 3vh;
+    font-size: 2vh;
 }
 #keypad{
     margin-left:auto;
     margin-right:auto;
 }
 #io{
-    font-size: 3vh;
     margin-left:auto;
     margin-right:auto;
+}
+main{
+    font-size: 3vh;
+}
+#fee{
+    margin:2.5vh;
 }

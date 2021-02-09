@@ -52,9 +52,24 @@ class Model{
         return rate;
 
     }
-    convert(rate, input){
+    convert(rate, input, fee){
+        let f = parseInt(fee);
         let i = parseInt(input);
-        return Math.round((((rate * i) + Number.EPSILON) * 100) / 100).toFixed(2);
+        i = i / 100;
+        let conversion = Math.round((((rate * i) + Number.EPSILON) * 100) / 100);
+        return conversion + (conversion * fee).toFixed(2);
+    }
+    getFeeLocal(){
+        let fee = localStorage.getItem("fee");
+        console.log(fee);
+        if(!fee){
+            fee = "0"
+        }
+
+        return fee;
+    }
+    setFeeLocal(fee){
+        localStorage.setItem("fee", fee);
     }
     getHomeLocal(){
         let home = localStorage.getItem("home");

@@ -8,15 +8,13 @@ const initialise = () => {
     model = new Model();
     let home = model.getHomeLocal();
     let visit = model.getVisitLocal();
-    console.log(visit, home);
-    view = new View(home, visit);
-    //check local storage for settings
-    //on change,update local storage
-    //use model to check local storage if null then default
-
+    let fee = model.getFeeLocal();
+    console.log(visit, home, fee);
+    view = new View(home, visit, fee);
 
     view.setHome(home);
     view.setVisit(visit);
+    view.setFee(fee);
 
     for(let i=0; i < 10; i++){
         document.getElementById(i.toString()).addEventListener("click", ()=>{
@@ -30,7 +28,7 @@ const initialise = () => {
     view.registerClickListenerEQ(()=>{
         console.log(view.input);
         let rate = model.getExchangeRate(view.home,view.visit);
-        let result = model.convert(rate, view.input);
+        let result = model.convert(rate, view.input, view.fee);
         view.showResult(result);
     })
     view.registerChangeListenerH(()=>{
@@ -42,6 +40,11 @@ const initialise = () => {
         let visit = view.getVisit();
         model.setVisitLocal(visit);
         view.setVisit(visit);
+    })
+    view.registerChangeListenerFee(()=>{
+        let fee = view.getFee();
+        model.setFeeLocal(fee);
+        view.setFee(fee);
     })
     //do any initialisation and "plumbing" here
 };

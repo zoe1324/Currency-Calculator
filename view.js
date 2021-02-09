@@ -1,10 +1,12 @@
 'use strict';
 
 class View{
-    constructor(home, visit) {
+
+    constructor(home, visit, fee) {
         this.input = "";
         this.home = home;
         this.visit = visit;
+        this.fee = fee;
     }
     registerClickListenerC(handler){
         document.getElementById("c").addEventListener("click", handler)
@@ -18,11 +20,22 @@ class View{
     registerChangeListenerV(handler){
         document.getElementById("visit").addEventListener("change", handler)
     }
+    registerChangeListenerFee(handler){
+        document.getElementById("fee").addEventListener("change", handler)
+    }
+    getFee(){
+        return document.getElementById("fee").value;
+    }
     getHome(){
         return document.getElementById("home").value;
     }
     getVisit(){
         return document.getElementById("visit").value;
+    }
+    setFee(fee){
+        document.getElementById("fee").setAttribute("fee", fee);
+        document.getElementById("fee").value = fee;
+        this.home = fee;
     }
     setHome(home){
         document.getElementById("home").setAttribute("value", home);
