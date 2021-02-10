@@ -1,10 +1,11 @@
 'use strict';
 
 class Model{
+
     constructor() {
         this.RATES = {
             EUR : 1.0,
-            USD : 1.2104,
+            USD : 1.2103,
             JPY : 126.58,
             BGN : 1.9558,
             CZK : 25.738,
@@ -37,20 +38,25 @@ class Model{
             THB : 36.239,
             ZAR : 17.8953
         };
-        function loadFromServerInto(rates) {
-            let ref = new XMLHttpRequest();
-            ref.onreadystatechange = function() {
-                if (this.readyState===4 && this.status===200) {
-                    rates.textContent = this.responseText;
-                }
-            };
-            ref.open("GET", "https://devweb2020.cis.strath.ac.uk/~aes02112/ecbxml.php", true);
-            ref.send();
-        }
-        let rates;
-        loadFromServerInto(rates);
-    }
 
+        //Use XML DOM parsing as per lectures then get all Cube tags -
+        // then iterate over these but
+        // only process ones that have the currency and rate attributes set.
+    }
+    setRates(updatedRates){
+        console.log(updatedRates);
+        // for(let i = 0; i < updatedRates.length; i++){
+        //     console.log(updatedRates[i].getAttribute("currency"));
+        //     console.log(updatedRates[i].getAttribute("rate"));
+        //     if(updatedRates[i].getAttribute("currency") !== null && updatedRates[i].getAttribute("rate") !== null){
+        //         console.log(this.RATES[updatedRates[i].getAttribute("currency")]);
+        //         this.RATES[updatedRates[i].getAttribute("currency")] = updatedRates[i].getAttribute("rate");
+        //         console.log(this.RATES[updatedRates[i].getAttribute("currency")])
+        //     }
+        // }
+        this.RATES = updatedRates;
+        console.log(this.RATES);
+    }
     convert(home, visit, input, fee){
         console.log(home, visit, input, fee);
         console.log(home);

@@ -4,6 +4,23 @@
 let model, view;
 
 const initialise = () => {
+    let elem;
+    let ref = new XMLHttpRequest();
+    ref.onreadystatechange = function() {
+        if (this.readyState===4 && this.status===200) {
+            elem = this.responseText;
+            let parser = new DOMParser();
+            let xmlDoc = parser.parseFromString(elem, "text/xml");
+            let cubes = xmlDoc.getElementsByTagName("Cube");
+            let ratesOnline = {EUR : 1.0};
+            for(let i = 1; i < cubes.length; i++){
+                ratesOnline[cubes[i].getAttribute("currency")] = cubes[i].getAttribute("rate");
+            }
+            model.setRates(ratesOnline);
+        }
+    };
+    ref.open("POST", "https://devweb2020.cis.strath.ac.uk/~aes02112/ecbxml.php", true);
+    ref.send();
 
     model = new Model();
     let home = model.getHomeLocal();
