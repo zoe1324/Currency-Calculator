@@ -37,6 +37,18 @@ class Model{
             THB : 36.239,
             ZAR : 17.8953
         };
+        function loadFromServerInto(rates) {
+            let ref = new XMLHttpRequest();
+            ref.onreadystatechange = function() {
+                if (this.readyState===4 && this.status===200) {
+                    rates.textContent = this.responseText;
+                }
+            };
+            ref.open("GET", "https://devweb2020.cis.strath.ac.uk/~aes02112/ecbxml.php", true);
+            ref.send();
+        }
+        let rates;
+        loadFromServerInto(rates);
     }
 
     convert(home, visit, input, fee){
