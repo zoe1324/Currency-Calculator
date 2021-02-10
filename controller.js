@@ -5,8 +5,8 @@ let model, view;
 
 const initialise = () => {
     let elem;
-    let needUpdate = true;
-        // model.needsUpdate(); finds last updated time, and returns if that time has passed.
+    model = new Model();
+    let needUpdate = model.needsUpdate(); //finds last updated time, and returns if that time has passed.
 
     if(needUpdate === true){ //finds the database ecb rates
         let ref = new XMLHttpRequest();
@@ -22,7 +22,7 @@ const initialise = () => {
                         ratesOnline[cubes[i].getAttribute("currency")] = cubes[i].getAttribute("rate");
                     }
                 }
-                model.setRates(ratesOnline);
+                model.updateRates(ratesOnline);
                 model.setLastUpdateTime();
             }
         };
@@ -30,11 +30,11 @@ const initialise = () => {
         ref.send();
     }
 
-    model = new Model();
     let home = model.getHomeLocal();
     let visit = model.getVisitLocal();
     let fee = model.getFeeLocal();
     console.log(visit, home, fee);
+    model.getCachedRates();
     view = new View(home, visit, fee);
 
     view.setHome(home);
