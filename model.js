@@ -5,7 +5,7 @@ class Model{
     constructor() {
         this.RATES = {
             EUR : 1.0,
-            USD : 1.2103,
+            USD : 1.2104,
             JPY : 126.58,
             BGN : 1.9558,
             CZK : 25.738,
@@ -45,16 +45,18 @@ class Model{
     }
     setRates(updatedRates){
         console.log(updatedRates);
-        // for(let i = 0; i < updatedRates.length; i++){
-        //     console.log(updatedRates[i].getAttribute("currency"));
-        //     console.log(updatedRates[i].getAttribute("rate"));
-        //     if(updatedRates[i].getAttribute("currency") !== null && updatedRates[i].getAttribute("rate") !== null){
-        //         console.log(this.RATES[updatedRates[i].getAttribute("currency")]);
-        //         this.RATES[updatedRates[i].getAttribute("currency")] = updatedRates[i].getAttribute("rate");
-        //         console.log(this.RATES[updatedRates[i].getAttribute("currency")])
-        //     }
-        // }
-        this.RATES = updatedRates;
+
+        for (let prop in updatedRates){
+            if (updatedRates.hasOwnProperty(prop)){
+                console.log(prop + " : " + this.RATES[prop]);
+                console.log(prop + " : " + updatedRates[prop]);
+                if (this.RATES[prop] !== null){
+                    this.RATES[prop] = updatedRates[prop];
+                    console.log(this.RATES[prop] + " : " + updatedRates[prop]);
+                }
+            }
+
+        }
         console.log(this.RATES);
     }
     convert(home, visit, input, fee){

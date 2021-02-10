@@ -5,6 +5,8 @@ let model, view;
 
 const initialise = () => {
     let elem;
+    let lastUpdateTime = model.getLastUpdateTime();
+
     let ref = new XMLHttpRequest();
     ref.onreadystatechange = function() {
         if (this.readyState===4 && this.status===200) {
@@ -12,9 +14,11 @@ const initialise = () => {
             let parser = new DOMParser();
             let xmlDoc = parser.parseFromString(elem, "text/xml");
             let cubes = xmlDoc.getElementsByTagName("Cube");
-            let ratesOnline = {EUR : 1.0};
+            let ratesOnline = {};
             for(let i = 1; i < cubes.length; i++){
-                ratesOnline[cubes[i].getAttribute("currency")] = cubes[i].getAttribute("rate");
+                if(cubes[i].getAttribute("currency") !== null & cubes[i].getAttribute("rate") !== null){
+                    ratesOnline[cubes[i].getAttribute("currency")] = cubes[i].getAttribute("rate");
+                }
             }
             model.setRates(ratesOnline);
         }
