@@ -5,7 +5,7 @@ let model, view;
 
 const initialise = () => {
     let elem;
-    let lastUpdateTime = model.getLastUpdateTime();
+    //let lastUpdateTime = model.getLastUpdateTime();
 
     let ref = new XMLHttpRequest();
     ref.onreadystatechange = function() {
