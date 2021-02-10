@@ -3,7 +3,7 @@
 class Model{
 
     constructor() {
-        this.RATES = {
+        this.RATES = { //original hardcoded rates if database fails
             EUR : 1.0,
             USD : 1.2104,
             JPY : 126.58,
@@ -43,6 +43,27 @@ class Model{
         // then iterate over these but
         // only process ones that have the currency and rate attributes set.
     }
+    
+    needsUpdate(){
+        let lastUpdate = localStorage.getItem("lastUpdateTime");
+        if(lastUpdate !== null){
+            let lastTime = JSON.parse(lastUpdate);
+            console.log(lastTime);
+        }
+        return true;
+    }
+    
+    setLastUpdateTime(){
+        let d = new Date();
+        let updateTime = {
+            date : d.getDate().toString(),
+            month : d.getMonth().toString(),
+            year : d.getFullYear().toString(),
+        };
+
+        localStorage.setItem("lastUpdateTime", JSON.stringify(updateTime));
+    }
+    
     setRates(updatedRates){
         console.log(updatedRates);
 
@@ -79,7 +100,7 @@ class Model{
     getFeeLocal(){
         let fee = localStorage.getItem("fee");
         if(!fee){
-            fee = "0"
+            fee = "0";
         }
 
         return fee;
@@ -90,7 +111,7 @@ class Model{
     getHomeLocal(){
         let home = localStorage.getItem("home");
         if(!home){ //default pounds
-            home = "GBP"
+            home = "GBP";
         }
 
         return home;

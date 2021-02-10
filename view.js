@@ -9,19 +9,19 @@ class View{
         this.fee = fee;
     }
     registerClickListenerC(handler){
-        document.getElementById("c").addEventListener("click", handler)
+        document.getElementById("c").addEventListener("click", handler);
     }
     registerClickListenerEQ(handler){
-        document.getElementById("=").addEventListener("click", handler)
+        document.getElementById("=").addEventListener("click", handler);
     }
     registerChangeListenerH(handler){
-        document.getElementById("home").addEventListener("change", handler)
+        document.getElementById("home").addEventListener("change", handler);
     }
     registerChangeListenerV(handler){
-        document.getElementById("visit").addEventListener("change", handler)
+        document.getElementById("visit").addEventListener("change", handler);
     }
     registerChangeListenerFee(handler){
-        document.getElementById("fee").addEventListener("change", handler)
+        document.getElementById("fee").addEventListener("change", handler);
     }
     getFee(){
         return document.getElementById("fee").value;
@@ -44,12 +44,12 @@ class View{
     }
     setVisit(visit){
         document.getElementById("visit").setAttribute("value", visit);
-        document.getElementById("visit").value = visit
+        document.getElementById("visit").value = visit;
         this.visit = visit;
     }
 
     showInput(input){
-        let inp = document.getElementById("inputBox")
+        let inp = document.getElementById("inputBox");
         if(input === ""){
             inp.setAttribute("value", "");
             document.getElementById("answer").setAttribute("value", "");
@@ -64,7 +64,7 @@ class View{
     }
 
     showResult(res) {
-        const ans = document.getElementById("answer")
+        const ans = document.getElementById("answer");
         ans.setAttribute("value",res);
     }
 
