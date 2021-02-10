@@ -26,8 +26,7 @@ const initialise = () => {
         }
     )
     view.registerClickListenerEQ(()=>{
-        let rate = model.getExchangeRate(view.home,view.visit);
-        let result = model.convert(rate, view.input, view.fee);
+        let result = model.convert(view.home, view.visit, view.input, view.fee);
         view.showResult(result);
     })
     view.registerChangeListenerH(()=>{

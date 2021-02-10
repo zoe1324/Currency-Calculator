@@ -1,65 +1,60 @@
 'use strict';
 
 class Model{
-    constructor() { //setting hardcoded exchange rates
-        this.gbp_to = {"USD": 1.38, "JPY" , "BGN", "CZK","DKK", "HUF", "RON", "SEK", "CHF", "ISK", "NOK", "HRK", "RUB", "TRY", "AUD", "BRL", "CAD"}
-        this.gbp_to_eur = 1.14;
-        this.gbp_to_pln = 5.10;
-        this.eur_to_gbp = 0.88;
-        this.eur_to_pln = 4.48;
-        this.pln_to_gbp = 0.20;
-        this.pln_to_eur = 0.22;
+    constructor() {
+        this.RATES = {
+            EUR : 1.0,
+            USD : 1.2104,
+            JPY : 126.58,
+            BGN : 1.9558,
+            CZK : 25.738,
+            DKK : 7.4369,
+            GBP : 0.87828,
+            HUF : 358.88,
+            PLN : 4.4761,
+            RON : 4.8753,
+            SEK : 10.1058,
+            CHF : 1.0817,
+            ISK : 154.10,
+            NOK : 10.2588,
+            HRK : 7.5670,
+            RUB : 89.6164,
+            TRY : 8.5883,
+            AUD : 1.5681,
+            BRL : 6.5530,
+            CAD : 1.5414,
+            CNY : 7.7894,
+            HKD : 9.3827,
+            IDR : 16929.80,
+            ILS : 3.9401,
+            INR : 88.2765,
+            KRW : 1347.42,
+            MXN : 24.3205,
+            MYR : 4.8997,
+            NZD : 1.6741,
+            PHP : 58.142,
+            SGD : 1.6074,
+            THB : 36.239,
+            ZAR : 17.8953
+        };
     }
 
-    getExchangeRate(home, visit){
-        let rate;
-        console.log(visit);
+    convert(home, visit, input, fee){
+        console.log(home, visit, input, fee);
         console.log(home);
-        if(visit === "EUR"){
-            if(home === "GBP"){
-                rate = this.eur_to_gbp;
-            }
-            else if(home === "PLN") {
-                rate = this.eur_to_pln;
-            }
-            else{
-                rate = 1;
-            }
-        }
-        else if(visit === "GBP"){
-            if(home === "EUR"){
-                rate = this.gbp_to_eur;
-            }
-            else if(home === "PLN"){
-                rate = this.gbp_to_pln;
-            }
-            else{
-                rate = 1;
-            }
-        }
-        else{
-            if(home === "GBP"){
-                rate = this.pln_to_gbp;
-            }
-            else if(home === "EUR"){
-                rate = this.pln_to_eur;
-            }
-            else{
-                rate = 1;
-            }
-        }
-
-        console.log(rate);
-        return rate;
-
-    }
-    convert(rate, input, fee){
+        console.log(visit);
         let f = parseInt(fee);
         let i = parseInt(input);
-        f = f / 100;
-        let conversion = Math.round((((rate * i) + Number.EPSILON) * 100) / 100);
-        console.log(conversion);
-        return (conversion + (conversion * f));
+        f = f / 100; //percentage of fee to add at the end
+        let v = this.RATES[visit];
+        let h = this.RATES[home];
+        console.log(v);
+        console.log(h);
+        i = (i / v) * h;
+        f = i * f;
+        console.log(i);
+        console.log(f);
+        return Math.ceil(i + f);
     }
     getFeeLocal(){
         let fee = localStorage.getItem("fee");
@@ -74,7 +69,7 @@ class Model{
     }
     getHomeLocal(){
         let home = localStorage.getItem("home");
-        if(!home){
+        if(!home){ //default pounds
             home = "GBP"
         }
 
@@ -86,7 +81,7 @@ class Model{
     getVisitLocal(){
         let visit = localStorage.getItem("visit");
 
-        if(!visit){
+        if(!visit){ //default euros
             visit = "EUR";
         }
 
