@@ -36,7 +36,7 @@ const initialise = () => {
     console.log(visit, home, fee);
     model.getCachedRates();
     view = new View(home, visit, fee);
-
+    view.setRateTimeInFooter();
     view.setHome(home);
     view.setVisit(visit);
     view.setFee(fee);

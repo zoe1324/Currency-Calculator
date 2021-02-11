@@ -8,6 +8,11 @@ class View{
         this.visit = visit;
         this.fee = fee;
     }
+    setRateTimeInFooter(){
+        let text =  document.getElementById("rates date").value;
+        document.getElementById("rates date").value = (text + localStorage.getItem("lastUpdateTime"));
+
+    }
     registerClickListenerC(handler){
         document.getElementById("c").addEventListener("click", handler);
     }
