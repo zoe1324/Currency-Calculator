@@ -93,6 +93,9 @@ button:active{
 .flex-container input:focus{
     border: none;
 }
+.flex-container input:active{
+    border: none;
+}
 main{
     margin: 0;
     padding: 0;
