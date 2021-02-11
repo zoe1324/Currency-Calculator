@@ -47,16 +47,19 @@ class Model{
     needsUpdate(){
         let lastUpdate = localStorage.getItem("lastUpdateTime");
         let today = new Date();
+        let currentMonth = today.getMonth() + 1;
         if(lastUpdate !== null){
             let lastTime = JSON.parse(lastUpdate);
-            console.log(lastTime);
-            if(lastTime.year.parseInt < today.getFullYear()){
+            if(parseInt(lastTime.year) < today.getFullYear()){
+                console.log("update needed");
                 return true; //update if new year
             }
-            else if(lastTime.month.parseInt < today.getMonth()){
+            else if(parseInt(lastTime.month) < currentMonth){
+                console.log("update needed");
                 return true; //update if new month same year
             }
-            else if(lastTime.date.parseInt > today.getDate()){
+            else if(parseInt(lastTime.date) < today.getDate()){
+                console.log("update needed");
                 return true; //update if new day same month
             }
         }
@@ -64,6 +67,7 @@ class Model{
             console.log("update needed");
             return true; //if no local storage found, then update
         }
+        console.log("update not needed");
         return false;
     }
     
