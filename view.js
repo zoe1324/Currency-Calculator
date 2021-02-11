@@ -79,7 +79,7 @@ class View{
     showResult(res) {
         const ans = document.getElementById("inputBox");
         if(ans !== null){
-            ans.setAttribute("value",res + this.getVisit());
+            ans.setAttribute("value",res);
         }
     }
 
