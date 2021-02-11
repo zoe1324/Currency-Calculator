@@ -64,7 +64,7 @@ class View{
     }
 
     showResult(res) {
-        const ans = document.getElementById("answer");
+        const ans = document.getElementById("inputBox");
         ans.setAttribute("value",res);
     }
 
