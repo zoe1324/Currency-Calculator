@@ -38,10 +38,6 @@ class Model{
             THB : 36.239,
             ZAR : 17.8953
         };
-
-        //Use XML DOM parsing as per lectures then get all Cube tags -
-        // then iterate over these but
-        // only process ones that have the currency and rate attributes set.
     }
     
     needsUpdate(){
@@ -51,23 +47,18 @@ class Model{
         if(lastUpdate !== null){
             let lastTime = JSON.parse(lastUpdate);
             if(parseInt(lastTime.year) < today.getFullYear()){
-                console.log("update needed");
                 return true; //update if new year
             }
             else if(parseInt(lastTime.month) < currentMonth){
-                console.log("update needed");
                 return true; //update if new month same year
             }
             else if(parseInt(lastTime.date) < today.getDate()){
-                console.log("update needed");
                 return true; //update if new day same month
             }
         }
         else{
-            console.log("update needed");
             return true; //if no local storage found, then update
         }
-        console.log("update not needed");
         return false;
     }
     
@@ -106,23 +97,15 @@ class Model{
 
         }
         localStorage.setItem("cachedRates", JSON.stringify(this.RATES));
-        console.log(this.RATES);
     }
     convert(home, visit, input, fee){
-        console.log(home, visit, input, fee);
-        console.log(home);
-        console.log(visit);
         let f = parseInt(fee);
         let i = parseInt(input);
         f = f / 100; //percentage of fee to add at the end
         let v = this.RATES[visit];
         let h = this.RATES[home];
-        console.log(v);
-        console.log(h);
         i = (i / v) * h;
         f = i * f;
-        console.log(i);
-        console.log(f);
         return Math.ceil(i + f);
     }
     getFeeLocal(){
