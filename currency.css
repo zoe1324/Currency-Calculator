@@ -24,7 +24,7 @@ footer > p{
 }
 .flex-container{
     display: block;
-    background-color: blue;
+    background-color: #636363;
     width: 70%;
     margin-left: 30%;
     padding : 0;
@@ -33,35 +33,40 @@ footer > p{
 ul{
     list-style-type: none;
 }
+ul>li{
+    background-color: transparent;
+    border-radius: 8px;
+    margin: 1vh 0;
+}
 .sidebar {
     margin: 0;
     padding: 0;
     width: 29%;
-    background-color: #F7f7f7 ;
+    background-color: #25283d;
     height: 95vh;
     overflow: auto;
     position: fixed;
 }
 .sidebar ul {
-    /*display: block;*/
     padding: 3vh;
-    color: black;
+    color: whitesmoke;
 }
 .flex-container button{
-    color: white;
-    background-color: blue;
+    color: #fde74c;
+    background-color: transparent;
     border: none;
     padding: 3vh;
     margin: 3vh 0.5vw;
     font-size: 4vh;
     height: 14vh;
     width: auto;
+    font-family: Consolas;
 }
 button:focus{
     outline: 0;
 }
 button:active{
-    background-color: cornflowerblue;
+    background-color: dimgray;
     border-radius: 12px;
     border:none;
 }
@@ -70,19 +75,22 @@ button:active{
     height: 3.5vh;
     font-size: 2vh;
     border:none;
-    color: black;
-    background-color: #f7f7f7;
+    color: whitesmoke;
+    background-color: transparent;
 }
 .sidebar label{
     font-size: 2vh;
 }
 .flex-container input{
+    font-family: monospace;
     border: none;
-    background-color: #D1D7F9;
+    color: black;
+    background-color: #fde74c;
     width: 100%;
     height: 14vh;
-    font-size: 5vh;
+    font-size: 8vh;
     text-align: right;
+    font-style: italic;
 }
 .flex-container input:focus{
     border: none;

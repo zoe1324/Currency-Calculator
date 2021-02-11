@@ -9,9 +9,17 @@ class View{
         this.fee = fee;
     }
     setRateTimeInFooter(){
-        let text =  document.getElementById("rates date").value;
-        document.getElementById("rates date").value = (text + localStorage.getItem("lastUpdateTime"));
-
+        let time =  localStorage.getItem("lastUpdateTime");
+        time = JSON.parse(time);
+        let dateString;
+        if(time !== null){
+            dateString = (time.date.toString() + "/" + time.month.toString() + "/" + time.year.toString());
+        }
+        else{
+            dateString = "10/02/2021"; //date of hardcoded rates
+        }
+        let content = document.getElementById("rates date").textContent;
+        document.getElementById("rates date").textContent = (content + dateString);
     }
     registerClickListenerC(handler){
         document.getElementById("c").addEventListener("click", handler);
@@ -57,7 +65,7 @@ class View{
         let inp = document.getElementById("inputBox");
         if(input === ""){
             inp.setAttribute("value", "");
-            document.getElementById("answer").setAttribute("value", "");
+            document.getElementById("inputBox").setAttribute("value", "");
             this.input = "";
         }
         else{
@@ -70,7 +78,9 @@ class View{
 
     showResult(res) {
         const ans = document.getElementById("inputBox");
-        ans.setAttribute("value",res);
+        if(ans !== null){
+            ans.setAttribute("value",res + this.getVisit());
+        }
     }
 
 }
