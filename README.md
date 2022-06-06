@@ -1,5 +1,7 @@
 # Currency-Calculator
 
+Hosted via devweb2020: https://devweb2020.cis.strath.ac.uk/~xeb18139/MADCurrency_nialvbjn/currency
+
 Created as part of assessment for Mobile App Development, with the specification as follows:
 
 In this assessment you should write a currency calculator in HTML5, JavaScript6 and CSS. The aim is that this is a quick calculator for travellers. As the user is visiting another currency zone, conversions should be from "visiting" to "home" to give them an idea how much it will end up costing in their normal currency once it comes off their card account.  Sample scenario: 
